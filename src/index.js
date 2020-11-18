@@ -1,11 +1,13 @@
 import { createHomepage } from './lib/homepage';
 import { el, element } from './lib/utils';
+import { createVideoPage } from './lib/videopage';
 
 document.addEventListener('DOMContentLoaded', async () => {
   // Hér er allt „vírað“ saman
   const currentUrl = window.location.href;
   if (currentUrl.includes('video')) {
-    console.log('video');
+    const videoId = currentUrl.substring(currentUrl.indexOf('id=') + 3, currentUrl.indexOf('id=') + 4);
+    createVideoPage(videoId);
   } else {
     createHomepage();
   }

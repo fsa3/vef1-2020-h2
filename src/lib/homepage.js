@@ -17,12 +17,17 @@ function createVideoEl(videos) {
   const rowEl = element('div', { class: 'row' }, null, ' ');
   videos.forEach((vidNum) => {
     const video = data.videos[vidNum - 1];
-    const { title, poster, duration, id } = video;
+    const {
+      title, poster, duration, id,
+    } = video;
+    const click = () => {
+      window.location.href = `video.html?id=${id}`;
+    };
     const formattedDuration = formatDuration(duration);
-    const vidEl = element('div', { class: 'col col-4' }, null,
-      element('div', null, null,
+    const vidEl = element('div', { class: 'vid-box col col-4' }, null,
+      element('div', { class: 'thumbnail' }, { click },
         element('img', { src: poster, alt: title }, null, title),
-        el('p', formattedDuration)),
+        element('p', { class: 'duration' }, null, formattedDuration)),
       el('h3',
         element('a', { href: `video.html?id=${id}` }, null, title)));
     rowEl.appendChild(vidEl);

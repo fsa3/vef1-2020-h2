@@ -1,0 +1,21 @@
+.vid-box {
+  .thumbnail {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .thumbnail .duration {
+    position: absolute;
+    right: 3%;
+    bottom: 5%;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 3px 5px;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}

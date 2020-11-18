@@ -1,8 +1,4 @@
 @import './src/styles/grid';
 @import './src/styles/global';
-
-img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
+@import './src/styles/videobox.scss';
+@import './src/styles/video.scss';
