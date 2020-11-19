@@ -1,6 +1,5 @@
 import { createHomepage } from './lib/homepage';
-import { el, element } from './lib/utils';
-import { createVideoPage } from './lib/videopage';
+import createVideoPage from './lib/videopage';
 
 document.addEventListener('DOMContentLoaded', async () => {
   // Hér er allt „vírað“ saman

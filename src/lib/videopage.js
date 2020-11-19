@@ -97,7 +97,7 @@ function errorWarning() {
   );
 }
 
-export async function createVideoPage(videoId) {
+async function createVideoPage(videoId) {
   const data = await fetchData();
   try {
     displayMainVideo(data.videos[videoId - 1], data);
@@ -107,6 +107,4 @@ export async function createVideoPage(videoId) {
   buttonEvents();
 }
 
-export function tester() {
-
-}
+export { createVideoPage as default };
