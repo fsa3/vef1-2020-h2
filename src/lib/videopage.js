@@ -7,10 +7,12 @@ function displayMainVideo(videoData, data) {
     title, video, description, related,
   } = videoData;
   const sectionEl = document.querySelector('section');
-  const titleEl = document.querySelector('h1');
+  const titleEl = document.querySelector('.video-title');
   const videoEl = document.querySelector('video');
   const descriptionEl = document.querySelector('.video-description');
-  titleEl.innerText = title;
+  titleEl.appendChild(
+    el('h1', title),
+  );
   videoEl.appendChild(
     element('source', { src: video }, null, title),
   );

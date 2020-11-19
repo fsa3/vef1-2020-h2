@@ -59,3 +59,42 @@ export function element(name, attributes = null, events = null, ...children) {
 export function el(name, ...children) {
   return element(name, null, null, ...children);
 }
+
+export function calculateTimeSince(time) {
+  const dateCreated = new Date(time);
+  const now = new Date();
+  const timeSince = now - dateCreated;
+  let formattedtime;
+
+  if (timeSince > 3.154e10) {
+    const result = Math.floor(timeSince / 3.154e10);
+    if (result % 10 === 1) {
+      formattedtime = `Fyrir ${result} ári síðan`;
+    } else {
+      formattedtime = `Fyrir ${result} árum síðan`;
+    }
+  } else if (timeSince > 2.628e9) {
+    const result = Math.floor(timeSince / 2.628e9);
+    if (result % 10 === 1) {
+      formattedtime = `Fyrir ${result} mánuði síðan`;
+    } else {
+      formattedtime = `Fyrir ${result} mánuðum síðan`;
+    }
+  } else if (timeSince > 8.64e7) {
+    const result = Math.floor(timeSince / 8.64e7);
+    if (result % 10 === 1) {
+      formattedtime = `Fyrir ${result} degi síðan`;
+    } else {
+      formattedtime = `Fyrir ${result} dögum síðan`;
+    }
+  } else {
+    const result = Math.floor(timeSince / 3.6e6);
+    if (result % 10 === 1) {
+      formattedtime = `Fyrir ${result} klukkustund síðan`;
+    } else {
+      formattedtime = `Fyrir ${result} klukkustundum síðan`;
+    }
+  }
+
+  return formattedtime;
+}
