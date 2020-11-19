@@ -1,4 +1,7 @@
 .vid-box {
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+
   .thumbnail {
     position: relative;
     cursor: pointer;
@@ -18,4 +21,9 @@
     width: 100%;
     object-fit: cover;
   }
+}
+
+hr {
+  width: 80%;
+  margin: auto;
 }

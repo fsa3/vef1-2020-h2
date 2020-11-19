@@ -1,8 +1,6 @@
 import { fetchData } from './data';
 import { el, element } from './utils';
 
-let data;
-
 function calculateDateSince(time) {
 
 }
@@ -13,7 +11,7 @@ function formatDuration(duration) {
   return `${min < 10 ? `0${min}` : min}:${sec < 10 ? `0${sec}` : sec}`;
 }
 
-function createVideoEl(videos) {
+export function createVideoEl(videos, data) {
   const rowEl = element('div', { class: 'row' }, null, ' ');
   videos.forEach((vidNum) => {
     const video = data.videos[vidNum - 1];
@@ -35,18 +33,18 @@ function createVideoEl(videos) {
   return rowEl;
 }
 
-export function displayCatagory(catagory) {
+function displayCatagory(catagory, data) {
   const { title, videos } = catagory;
   const titleEl = element('div', { class: 'row' }, null, element('h2', { class: 'col' }, null, title));
   const sectionEl = element('section', { class: 'grid' }, null, titleEl);
   const lineEl = el('hr');
-  sectionEl.appendChild(createVideoEl(videos));
+  sectionEl.appendChild(createVideoEl(videos, data));
   sectionEl.appendChild(lineEl);
   document.querySelector('main').appendChild(sectionEl);
 }
 
 export async function createHomepage() {
-  data = await fetchData();
+  const data = await fetchData();
   const { categories } = data;
-  categories.forEach((catagory) => displayCatagory(catagory));
+  categories.forEach((catagory) => displayCatagory(catagory, data));
 }

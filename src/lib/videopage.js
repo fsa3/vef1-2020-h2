@@ -1,31 +1,29 @@
 import { fetchData } from './data';
 import { el, element } from './utils';
+import { createVideoEl } from './homepage';
 
-function displayMainVideo(videoData) {
-  const { title, video, description } = videoData;
-  const videoSectionEl = element('section', { class: 'grid' }, null,
-    element('div', { class: 'row' }, null,
-      element('h1', { class: 'col ' }, null, title)),
-    element('div', { class: 'row' }, null,
-      element('div', { class: 'col col-12' }, null,
-        element('video', { controls: null }, null,
-          element('source', { src: video }, null, title)))),
-    element('div', { class: 'row controls' }, null,
-      element('img', { src: './img/back.svg' }, null, ' '),
-      element('img', { src: './img/play.svg' }, null, ' '),
-      element('img', { src: './img/mute.svg' }, null, ' '),
-      element('img', { src: './img/unmute.svg' }, null, ' '),
-      element('img', { src: './img/fullscreen.svg' }, null, ' '),
-      element('img', { src: './img/next.svg' }, null, ' ')),
-    element('div', { class: 'row' }, null,
-      element('p', { class: 'col' }, null, description)));
-  const mainEl = document.querySelector('main');
-  mainEl.appendChild(videoSectionEl);
+function displayMainVideo(videoData, data) {
+  const {
+    title, video, description, related,
+  } = videoData;
+  const sectionEl = document.querySelector('section');
+  const titleEl = document.querySelector('h1');
+  const videoEl = document.querySelector('video');
+  const descriptionEl = document.querySelector('.video-description');
+  titleEl.innerText = title;
+  videoEl.appendChild(
+    element('source', { src: video }, null, title),
+  );
+  descriptionEl.appendChild(
+    el('p', description),
+  );
+  const relatedEl = createVideoEl(related, data);
+  sectionEl.appendChild(relatedEl).appendChild(el('hr'));
 }
 
 export async function createVideoPage(videoId) {
   const data = await fetchData();
-  displayMainVideo(data.videos[videoId - 1]);
+  displayMainVideo(data.videos[videoId - 1], data);
 }
 
 export function tester() {
