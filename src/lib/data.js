@@ -1,7 +1,7 @@
 const URL = './videos.json';
 
 export async function fetchData() {
-  return fetch(URL)
+  return fetch(URL, { mode: 'no-cors' })
     .then((fetchResults) => {
       if (!fetchResults.ok) {
         throw new Error('Non 200 status');

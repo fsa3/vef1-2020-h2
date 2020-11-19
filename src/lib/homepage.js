@@ -37,10 +37,7 @@ function calculateTimeSince(time) {
     }
   }
 
-
-
   return formattedtime;
-
 }
 
 function formatDuration(duration) {
