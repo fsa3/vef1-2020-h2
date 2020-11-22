@@ -4,12 +4,13 @@
 
   video {
     width: 100%;
+    cursor: pointer;
   }
 }
 
 .video-paused {
-  position: relative;
   cursor: pointer;
+  position: relative;
 
   &::before {
     content: '';
@@ -42,17 +43,24 @@
 .controls {
   margin-top: 1.5rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 
   img {
     height: 3.5rem;
+
+    @media(max-width: $max-width-md) {
+      height: 2.5rem;
+    }
+
+    @media(max-width: $max-width-sm) {
+      height: 2rem;
+    }
   }
 
   button {
     cursor: pointer;
     background-color: transparent;
     border: none;
-    margin: 0 1rem;
   }
 }
 

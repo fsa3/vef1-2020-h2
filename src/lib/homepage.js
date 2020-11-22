@@ -19,7 +19,7 @@ export function createVideoEl(videos, data) {
       window.location.href = `video.html?id=${id}`;
     };
     const formattedDuration = formatDuration(duration);
-    const vidEl = element('div', { class: 'vid-box col col-4' }, null,
+    const vidEl = element('div', { class: 'vid-box col col-4 col-md-6 col-sm-12' }, null,
       element('div', { class: 'thumbnail' }, { click },
         element('img', { src: poster, alt: title }, null, title),
         element('p', { class: 'duration' }, null, formattedDuration)),
@@ -33,7 +33,7 @@ export function createVideoEl(videos, data) {
 
 function displayCatagory(catagory, data) {
   const { title, videos } = catagory;
-  const titleEl = element('div', { class: 'row' }, null, element('h2', { class: 'col' }, null, title));
+  const titleEl = element('div', { class: 'row' }, null, element('h2', { class: 'col offset-col-sm-1' }, null, title));
   const sectionEl = element('section', { class: 'grid' }, null, titleEl);
   const lineEl = el('hr');
   sectionEl.appendChild(createVideoEl(videos, data));

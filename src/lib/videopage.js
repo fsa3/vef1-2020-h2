@@ -38,11 +38,13 @@ function buttonEvents() {
   const unmute = document.querySelector('.unmute');
   const fullSc = document.querySelector('.fullscreen');
 
-  const playPause = () => {
-    if (vid.paused) {
-      vid.play();
-    } else {
-      vid.pause();
+  const playPause = (changeState = true) => {
+    if (changeState) {
+      if (vid.paused) {
+        vid.play();
+      } else {
+        vid.pause();
+      }
     }
     videoDiv.classList.toggle('video-paused');
     play.classList.toggle('hidden');
@@ -75,6 +77,16 @@ function buttonEvents() {
     }
   });
 
+  let fullscreen = false;
+
+  document.addEventListener('fullscreenchange', () => {
+    if (fullscreen) fullscreen = false;
+    else fullscreen = true;
+  });
+
+  vid.addEventListener('ended', () => { playPause(false); });
+  vid.addEventListener('play', () => { if (fullscreen) playPause(false); });
+  vid.addEventListener('pause', () => { if (fullscreen) playPause(false); });
   back.addEventListener('click', () => { skip(-3); });
   next.addEventListener('click', () => { skip(3); });
   videoDiv.addEventListener('click', playPause);

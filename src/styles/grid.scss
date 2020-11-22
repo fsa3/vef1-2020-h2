@@ -2,10 +2,11 @@
 
 .grid {
   margin: 0 auto;
-  max-width: 1290px;
+  max-width: $grid-with;
   overflow: hidden;
   @media (max-width: 1330px) {
-    padding: 0 10px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
