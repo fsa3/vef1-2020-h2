@@ -26,7 +26,7 @@ Eftirfarandi skriptur eru til staðar í verkefni:
 
 ## Uppsetning verkefnis
 
-Í rót verkefnis eru [`index.html`](./index.html) (upphafssíða), [`video.html`](./video.html) (vídeósíða), [`styles.scss`](./styles.scss) (stílar verkefnis importaðir í eina skrá), ['videos.json`](./videos.json) (gagnagrunnur myndbanda) ásamt skrám sem halda utan um stillingar á git, ritli, stylelint, eslint og npm tólum.
+Í rót verkefnis eru [`index.html`](./index.html) (upphafssíða), [`video.html`](./video.html) (vídeósíða), [`styles.scss`](./styles.scss) (stílar verkefnis importaðir í eina skrá), [`videos.json`](./videos.json) (gagnagrunnur myndbanda) ásamt skrám sem halda utan um stillingar á git, ritli, stylelint, eslint og npm tólum.
 
 ### Í rót eru síðan eftirfarandi möppur með eftirfarandi skrám:
 
