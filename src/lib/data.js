@@ -1,6 +1,6 @@
 const URL = './videos.json';
 
-export async function fetchData() {
+async function fetchData() {
   return fetch(URL, { mode: 'no-cors' })
     .then((fetchResults) => {
       if (!fetchResults.ok) {
@@ -12,6 +12,4 @@ export async function fetchData() {
     .then((data) => data);
 }
 
-export function drasl() {
-
-}
+export { fetchData as default };

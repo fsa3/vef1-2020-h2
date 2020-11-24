@@ -1,4 +1,4 @@
-import { fetchData } from './data';
+import fetchData from './data';
 import { el, element, calculateTimeSince } from './utils';
 
 function formatDuration(duration) {

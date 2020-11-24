@@ -60,6 +60,12 @@ export function el(name, ...children) {
   return element(name, null, null, ...children);
 }
 
+/**
+ * Fall sem tekur inn dagsetningum í millisekúndum og skilar
+ * streng sem segir hve langt er síðan þessi dagsetning var.
+ *
+ * @param {number} time dagsetning í millisekúndum
+ */
 export function calculateTimeSince(time) {
   const dateCreated = new Date(time);
   const now = new Date();

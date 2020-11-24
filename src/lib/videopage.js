@@ -1,4 +1,4 @@
-import { fetchData } from './data';
+import fetchData from './data';
 import { el, element } from './utils';
 import { createVideoEl } from './homepage';
 
