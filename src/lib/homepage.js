@@ -33,7 +33,8 @@ export function createVideoEl(videos, data) {
 
 function displayCatagory(catagory, data) {
   const { title, videos } = catagory;
-  const titleEl = element('div', { class: 'row' }, null, element('h2', { class: 'col offset-col-sm-1' }, null, title));
+  const titleEl = element('div', { class: 'row' }, null,
+    element('h2', { class: 'col' }, null, title));
   const sectionEl = element('section', { class: 'grid' }, null, titleEl);
   const lineEl = el('hr');
   sectionEl.appendChild(createVideoEl(videos, data));

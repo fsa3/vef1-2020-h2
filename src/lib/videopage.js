@@ -38,14 +38,15 @@ function buttonEvents() {
   const unmute = document.querySelector('.unmute');
   const fullSc = document.querySelector('.fullscreen');
 
-  const playPause = (changeState = true) => {
-    if (changeState) {
-      if (vid.paused) {
-        vid.play();
-      } else {
-        vid.pause();
-      }
+  const playPause = () => {
+    if (vid.paused) {
+      vid.play();
+    } else {
+      vid.pause();
     }
+  };
+
+  const playPauseStateChange = () => {
     videoDiv.classList.toggle('video-paused');
     play.classList.toggle('hidden');
     pause.classList.toggle('hidden');
@@ -54,11 +55,22 @@ function buttonEvents() {
   const muteUnmute = () => {
     if (vid.muted) {
       vid.muted = false;
+    } else if (vid.volume === 0) {
+      vid.muted = false;
+      vid.volume = 1;
     } else {
       vid.muted = true;
     }
-    mute.classList.toggle('hidden');
-    unmute.classList.toggle('hidden');
+  };
+
+  const muteUnmuteStateChange = () => {
+    if (vid.muted || vid.volume === 0) {
+      mute.classList.add('hidden');
+      unmute.classList.remove('hidden');
+    } else {
+      mute.classList.remove('hidden');
+      unmute.classList.add('hidden');
+    }
   };
 
   const skip = (seconds) => {
@@ -77,16 +89,10 @@ function buttonEvents() {
     }
   });
 
-  let fullscreen = false;
+  vid.addEventListener('play', playPauseStateChange);
+  vid.addEventListener('pause', playPauseStateChange);
+  vid.addEventListener('volumechange', muteUnmuteStateChange);
 
-  document.addEventListener('fullscreenchange', () => {
-    if (fullscreen) fullscreen = false;
-    else fullscreen = true;
-  });
-
-  vid.addEventListener('ended', () => { playPause(false); });
-  vid.addEventListener('play', () => { if (fullscreen) playPause(false); });
-  vid.addEventListener('pause', () => { if (fullscreen) playPause(false); });
   back.addEventListener('click', () => { skip(-3); });
   next.addEventListener('click', () => { skip(3); });
   videoDiv.addEventListener('click', playPause);
@@ -105,7 +111,7 @@ function errorWarning() {
   const main = document.querySelector('main');
   main.appendChild(
     element('h1', { class: 'no-vid-error' }, null,
-      'Úps, myndbandið sem þú baðst um finnst ekki 😕'),
+      'Úps, myndbandið sem þú baðst um finnst ekki'),
   );
 }
 
