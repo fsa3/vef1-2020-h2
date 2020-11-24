@@ -37,8 +37,8 @@ Eftirfarandi skriptur eru til staðar í verkefni:
     * [`config.scss`](./src/styles/config.scss) - inniheldur breytur
     * [`global.scss`](./src/styles/global.scss) - inniheldur 'global' stíla á 'elementum' sem eiga við allar síður verkefnisins
     * [`grid.scss`](./src/styles/grid.scss) - inniheldur klasana fyrir grid, notar for-lykkju til þess að ítra út grid klösum
-    * [`video.scss`](./src/lib/video.scss) - inniheldur stíla fyrir síðu sem spilar myndband
-    * [`videobox.scss`](./src/lib/videobox.scss) - inniheldur stíla fyrir lista af myndböndum
+    * [`video.scss`](./src/styles/video.scss) - inniheldur stíla fyrir síðu sem spilar myndband
+    * [`videobox.scss`](./src/styles/videobox.scss) - inniheldur stíla fyrir lista af myndböndum
   * [`/lib`](./src/lib) - safn af JavaScript skrám sem [`index.js`](./src/index.js) notar
     * [`data.js`](./src/lib/data.js) - sækir gögn úr [`videos.json`](./videos.json)
     * [`homepage.js`](./src/lib/homepage.js) - setur upp forsíðu verkefnis
